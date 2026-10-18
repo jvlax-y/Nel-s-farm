@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nel's Farm Cilember</title>
+  <meta name="description" content="Menyediakan tanaman hias, bibit perkebunan, hewan ternak, dan ikan segar berkualitas tinggi langsung dari kebun Cilember, Puncak Bogor.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     HEADER — sticky, ~114px
+     ═══════════════════════════════════════════════ -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+
+    <!-- Logo left -->
+    <a href="#beranda" class="header-logo" aria-label="Nel's Farm Cilember — Beranda">
+      <img src="images/logo.png" alt="Nel's Farm" class="logo-img">
+      <div class="logo-text">
+        <span class="logo-name">Nel's Farm</span>
+        <span class="logo-sub">Cilember</span>
+      </div>
+    </a>
+
+    <!-- Desktop nav center-right -->
+    <nav class="header-nav" id="desktop-nav" aria-label="Navigasi utama">
+      <a href="#beranda"  class="nav-item active">Beranda</a>
+      <a href="#katalog"  class="nav-item">Katalog Produk</a>
+      <a href="#lokasi"   class="nav-item">Lokasi dan Kontak</a>
+    </nav>
+
+    <!-- Right actions -->
+    <div class="header-actions">
+      <button class="cart-btn" id="cart-btn" aria-label="Buka keranjang belanja">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+        <span class="cart-count" id="cart-count" aria-live="polite">0</span>
+      </button>
+
+      <!-- Hamburger (mobile only) -->
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Buka menu" aria-expanded="false" aria-controls="mobile-drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile nav drawer -->
+<div class="mobile-overlay" id="mobile-overlay" aria-hidden="true"></div>
+<nav class="mobile-drawer" id="mobile-drawer" aria-label="Navigasi mobile" aria-hidden="true">
+  <button class="drawer-close" id="drawer-close" aria-label="Tutup menu">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
+  <div class="drawer-logo">
+    <img src="images/logo.png" alt="Nel's Farm" class="logo-img">
+    <div class="logo-text"><span class="logo-name">Nel's Farm</span><span class="logo-sub">Cilember</span></div>
+  </div>
+  <a href="#beranda"  class="drawer-item" data-close-drawer>Beranda</a>
+  <a href="#katalog"  class="drawer-item" data-close-drawer>Katalog Produk</a>
+  <a href="#lokasi"   class="drawer-item" data-close-drawer>Lokasi dan Kontak</a>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════════
+     HERO SECTION — full-width ~860px height
+     ═══════════════════════════════════════════════ -->
+<section class="hero-section" id="beranda" aria-label="Hero">
+  <div class="hero-bg">
+    <img src="images/hero_banner.jpg" alt="Kebun Nel's Farm Cilember" class="hero-bg-img" fetchpriority="high">
+    <div class="hero-gradient" aria-hidden="true"></div>
+  </div>
+
+  <div class="hero-content reveal-element">
+    <p class="hero-eyebrow">Langsung dari Kebun Cilember, Puncak Bogor</p>
+    <h1 class="hero-title">Hasil Tani &amp; Ternak <br>Segar Berkualitas Tinggi</h1>
+    <p class="hero-sub">Tanaman hias, bibit perkebunan, hewan ternak, dan ikan pilihan hadir langsung dari kebun kami.</p>
+    <div class="hero-ctas">
+      <a href="#katalog" class="btn-glass btn-glass--primary">
+        <span>Lihat Produk</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#lokasi" class="btn-glass btn-glass--secondary">
+        <span>Hubungi Kami</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     KATALOG PRODUK — background krem
+     ═══════════════════════════════════════════════ -->
+<section class="catalog-section" id="katalog" aria-label="Katalog Produk">
+  <div class="container">
+
+    <div class="catalog-header reveal-element">
+      <h2 class="catalog-title">Katalog Produk</h2>
+
+      <!-- Category filter pill tabs -->
+      <div class="filter-scroll-wrap" role="tablist" aria-label="Filter kategori produk">
+        <div class="filter-tabs" id="filter-tabs">
+          <button class="filter-tab active" data-category="semua" role="tab" aria-selected="true">Semua</button>
+          <button class="filter-tab" data-category="tanaman" role="tab" aria-selected="false">Tanaman &amp; Perkebunan</button>
+          <button class="filter-tab" data-category="peternakan" role="tab" aria-selected="false">Peternakan</button>
+          <button class="filter-tab" data-category="perikanan" role="tab" aria-selected="false">Perikanan</button>
+        </div>
+      </div>
+
+      <!-- Search bar -->
+      <div class="search-wrap">
+        <label for="search-input" class="sr-only">Cari produk</label>
+        <div class="search-box">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+          <input type="search" id="search-input" class="search-input" placeholder="Cari produk di Nel's Farm..." autocomplete="off" spellcheck="false">
+        </div>
+      </div>
+    </div>
+
+    <div class="product-grid" id="product-grid" role="list" aria-live="polite" aria-label="Daftar produk"></div>
+
+    <div class="show-more-wrap" id="show-more-wrap">
+      <button class="btn-show-more" id="show-more-btn">Lihat Selengkapnya</button>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     TESTIMONIAL center-card highlight
+     ═══════════════════════════════════════════════ -->
+<section class="testi-section" id="ulasan" aria-label="Ulasan Pelanggan">
+  <div class="container">
+    <div class="testi-header reveal-element">
+      <p class="section-eyebrow">Ulasan Pelanggan</p>
+      <h2 class="section-title">Apa Kata Mereka?</h2>
+    </div>
+
+    <div class="testi-stage" id="testi-stage" aria-live="polite">
+      <!-- Cards rendered by JS -->
+    </div>
+
+    <!-- Pagination dots -->
+    <div class="testi-dots" id="testi-dots" role="tablist" aria-label="Navigasi ulasan"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     6. ABOUT / GALLERY SECTION
+     ═══════════════════════════════════════════════ -->
+<section class="about-section" id="galeri" aria-label="Tentang & Galeri Nel's Farm">
+  <span id="tentang" style="display:none;" aria-hidden="true"></span>
+  <div class="container">
+
+    <!-- Compact header: label + title + 1 sentence + stats + CTA -->
+    <div class="about-header reveal-element">
+      <p class="section-eyebrow">Tentang Kami</p>
+      <h2 class="about-title">Dari Kebun Cilember Langsung ke Tangan Anda</h2>
+      <p class="about-lead">Hasil tani dan ternak segar, langsung dari kebun kami di Puncak Bogor.</p>
+      <div class="about-stats">
+        <div class="stat-item">
+          <span class="stat-num">100%</span>
+          <span class="stat-label">Langsung dari Kebun</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-num">500+</span>
+          <span class="stat-label">Pelanggan Puas</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-num">14</span>
+          <span class="stat-label">Jenis Produk</span>
+        </div>
+      </div>
+      <a href="#katalog" class="btn-primary">Lihat Semua Produk</a>
+    </div>
+
+    <div class="gallery-bento" role="list" aria-label="Foto kebun dan peternakan Nel's Farm">
+
+      <div class="gallery-tile tile-large reveal-element" style="--stagger:.04s" role="listitem">
+        <img src="images/galeri/kebun.jpg" alt="Pemandangan Kebun Cilember" loading="lazy">
+        <div class="gallery-hover-overlay" aria-hidden="true"><span>Kebun Cilember</span></div>
+      </div>
+
+      <div class="gallery-tile tile-std reveal-element" style="--stagger:.08s" role="listitem">
+        <img src="images/galeri/tanaman1.jpg" alt="Tanaman hias" loading="lazy">
+        <div class="gallery-hover-overlay" aria-hidden="true"><span>Tanaman Hias</span></div>
+      </div>
+
+      <div class="gallery-tile tile-tall reveal-element" style="--stagger:.12s" role="listitem">
+        <img src="images/galeri/bunga1.jpeg" alt="Bunga hias" loading="lazy">
+        <div class="gallery-hover-overlay" aria-hidden="true"><span>Bunga Hias</span></div>
+      </div>
+
+      <div class="gallery-tile tile-std reveal-element" style="--stagger:.06s" role="listitem">
+        <img src="images/galeri/kandang_ayam1.jpg" alt="Kandang ayam kampung" loading="lazy">
+        <div class="gallery-hover-overlay" aria-hidden="true"><span>Kandang Ayam</span></div>
+      </div>
+
+      <div class="gallery-tile tile-std reveal-element" style="--stagger:.10s" role="listitem">
+        <img src="images/galeri/tanaman2.jpg" alt="Area perkebunan" loading="lazy">
+        <div class="gallery-hover-overlay" aria-hidden="true"><span>Area Perkebunan</span></div>
+      </div>
+
+      <div class="gallery-tile tile-std reveal-element" style="--stagger:.16s" role="listitem">
+        <img src="images/galeri/kandang_kambing1.jpg" alt="Kandang kambing ternak" loading="lazy">
+        <div class="gallery-hover-overlay" aria-hidden="true"><span>Kandang Kambing</span></div>
+      </div>
+
+      <div class="gallery-tile tile-wide reveal-element" style="--stagger:.20s" role="listitem">
+        <img src="images/galeri/kandang_ayam2.jpg" alt="Ayam kampung segar" loading="lazy">
+        <div class="gallery-hover-overlay" aria-hidden="true"><span>Ayam Kampung</span></div>
+      </div>
+
+      <div class="gallery-tile tile-std reveal-element" style="--stagger:.18s" role="listitem">
+        <img src="images/galeri/kandang_kambing2.jpg" alt="Peternakan kambing" loading="lazy">
+        <div class="gallery-hover-overlay" aria-hidden="true"><span>Peternakan Kambing</span></div>
+      </div>
+
+      <div class="gallery-tile tile-std reveal-element" style="--stagger:.24s" role="listitem">
+        <img src="images/galeri/kandang_kambing3.jpg" alt="Fasilitas peternakan" loading="lazy">
+        <div class="gallery-hover-overlay" aria-hidden="true"><span>Fasilitas Ternak</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     7. FOOTER — Organic Dark (#1F2E1E)
+     ═══════════════════════════════════════════════ -->
+<footer class="site-footer w-full bg-[#1F2E1E] text-white" id="lokasi" aria-label="Footer">
+  <!-- Inner Container: max-w-7xl mx-auto px-6 md:px-8 py-12 md:py-16 -->
+  <div class="footer-container max-w-7xl mx-auto px-6 md:px-8 py-12 md:py-16">
+    
+    <!-- Grid Structure: 4 columns on desktop (>=1024px), 2 on tablet, 1 on mobile -->
+    <div class="footer-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+
+      <!-- KOLOM 1 — Brand -->
+      <div class="footer-col footer-col-brand flex flex-col">
+        <!-- Logo + nama brand (flex row, gap-3, items-center) -->
+        <div class="footer-brand-header flex items-center gap-3">
+          <img src="images/logo.png" alt="Nel's Farm" class="footer-logo-img w-12 h-12 md:w-14 md:h-14 object-contain rounded-full flex-shrink-0" width="56" height="56">
+          <div class="footer-brand-text flex flex-col leading-tight">
+            <span class="footer-brand-name font-bold text-lg text-white">Nel's Farm</span>
+            <span class="footer-brand-sub text-xs tracking-widest uppercase text-[#8FAF6A] font-semibold">Cilember</span>
+          </div>
+        </div>
+        <!-- Tagline 1 kalimat -->
+        <p class="footer-tagline text-sm opacity-80 mt-3 leading-relaxed text-[#D9E4D6]">
+          Menyediakan hasil tani dan ternak berkualitas tinggi langsung dari kebun Cilember, Puncak Bogor.
+        </p>
+        <!-- Icon sosial (Instagram, WhatsApp) -->
+        <div class="footer-social-row flex items-center gap-3 mt-4" aria-label="Media sosial Nel's Farm">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-icon w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/80 hover:text-white hover:border-[#8FAF6A] hover:bg-[#8FAF6A]/20 transition-all" aria-label="Instagram Nel's Farm">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+            </svg>
+          </a>
+          <a href="https://wa.me/6281234567890?text=Halo%20Nel's%20Farm%2C%20saya%20ingin%20bertanya%20tentang%20produk." target="_blank" rel="noopener noreferrer" class="footer-social-icon w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/80 hover:text-white hover:border-[#8FAF6A] hover:bg-[#8FAF6A]/20 transition-all" aria-label="WhatsApp Nel's Farm">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- KOLOM 2 — Navigasi Cepat -->
+      <div class="footer-col footer-col-nav flex flex-col">
+        <h3 class="footer-heading font-semibold text-base text-white mb-4">Navigasi Cepat</h3>
+        <nav class="footer-nav-list flex flex-col gap-2" aria-label="Navigasi cepat footer">
+          <a href="#beranda" class="footer-nav-item text-sm opacity-80 hover:opacity-100 hover:text-white transition-opacity text-[#D9E4D6]">Beranda</a>
+          <a href="#katalog" class="footer-nav-item text-sm opacity-80 hover:opacity-100 hover:text-white transition-opacity text-[#D9E4D6]">Katalog Produk</a>
+          <a href="#galeri" class="footer-nav-item text-sm opacity-80 hover:opacity-100 hover:text-white transition-opacity text-[#D9E4D6]">Galeri</a>
+          <a href="#lokasi" class="footer-nav-item text-sm opacity-80 hover:opacity-100 hover:text-white transition-opacity text-[#D9E4D6]">Lokasi dan Kontak</a>
+        </nav>
+      </div>
+
+      <!-- KOLOM 3 — Lokasi -->
+      <div class="footer-col footer-col-location flex flex-col">
+        <h3 class="footer-heading font-semibold text-base text-white flex items-center gap-2 mb-4">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="text-[#8FAF6A]">
+            <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <span>Lokasi</span>
+        </h3>
+        <address class="footer-address text-sm opacity-80 leading-relaxed mb-3 not-italic text-[#D9E4D6]">
+          Jl. Cilember, Kp. Cilember<br>
+          Desa Jogjogan, Kec. Cisarua<br>
+          Kab. Bogor, Jawa Barat 16750
+        </address>
+        <a href="https://maps.google.com/?q=Cilember+Cisarua+Bogor" target="_blank" rel="noopener noreferrer" class="footer-maps-link text-sm text-[#9ED885] hover:text-white transition-colors mt-2 inline-flex items-center gap-1 font-medium">
+          <span>Lihat di Google Maps &rarr;</span>
+        </a>
+      </div>
+
+      <!-- KOLOM 4 — Belanja & Kontak -->
+      <div class="footer-col footer-col-actions flex flex-col">
+        <h3 class="footer-heading font-semibold text-base text-white mb-4">Belanja &amp; Kontak</h3>
+        
+        <!-- Sub-blok Shopee -->
+        <div class="footer-subblock mb-4">
+          <div class="flex items-center gap-2 font-medium text-sm text-white mb-1">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="text-[#8FAF6A]">
+              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
+              <path d="M3 6h18"/>
+              <path d="M16 10a4 4 0 0 1-8 0"/>
+            </svg>
+            <span>Toko Shopee</span>
+          </div>
+          <p class="text-xs opacity-70 text-[#D9E4D6] mb-1 leading-normal">
+            Belanja mudah dan aman lewat toko resmi Nel's Farm di Shopee.
+          </p>
+          <a href="https://shopee.co.id/nels_farm" target="_blank" rel="noopener noreferrer" class="text-sm text-[#9ED885] hover:text-white transition-colors inline-block font-medium">
+            shopee.co.id/nels_farm &rarr;
+          </a>
+        </div>
+
+        <!-- Sub-blok Kontak -->
+        <div class="footer-subblock">
+          <div class="flex items-center gap-2 font-medium text-sm text-white mb-1">
+            <span>Kontak</span>
+          </div>
+          <a href="https://wa.me/6281229234726?text=Halo%20Nel's%20Farm%2C%20saya%20ingin%20bertanya%20tentang%20produk." target="_blank" rel="noopener noreferrer" class="footer-wa-btn rounded-full bg-[#2F4A2E] border border-[#4BE68A]/40 text-[#4BE68A] hover:bg-[#3C5E3A] hover:text-white px-4 py-2 flex items-center gap-2 w-fit mt-2 font-semibold text-sm transition-all shadow-sm">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            <span>+62 812-2923-4726</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM BAR: border-t border-white/10 mt-12 pt-6 -->
+    <div class="footer-bottom-bar border-t border-white/10 mt-12 pt-6 text-center">
+      <p class="text-xs opacity-60 text-[#D9E4D6]">&copy; 2026 Nel's Farm Cilember. Semua hak dilindungi.</p>
+    </div>
+
+  </div>
+</footer>
+
+<div class="cart-overlay" id="cart-overlay" aria-hidden="true"></div>
+<aside class="cart-drawer" id="cart-drawer" aria-label="Keranjang belanja" aria-hidden="true">
+  <div class="cart-drawer-header">
+    <h2 class="cart-drawer-title">Keranjang Belanja</h2>
+    <button class="cart-drawer-close" id="cart-close" aria-label="Tutup keranjang">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="cart-body" id="cart-body"></div>
+  <div class="cart-footer" id="cart-footer">
+    <div class="cart-total">
+      <span>Total</span>
+      <span class="cart-total-val" id="cart-total-val">Rp 0</span>
+    </div>
+    <button class="btn-cart-order" id="btn-cart-order">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Pesan via WhatsApp
+    </button>
+  </div>
+</aside>
+
+<!-- Scroll to top -->
+<button class="scroll-top-btn" id="scroll-top-btn" aria-label="Kembali ke atas">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>
